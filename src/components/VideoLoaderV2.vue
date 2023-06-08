@@ -34,6 +34,7 @@ onMounted(() => {
             for (let i = 0; i < annotationStore.video.frames; i += preferenceStore.defaultFpk) {
               keyframeList.push(i)
             }
+
             annotationStore.keyframeList = keyframeList
           }
           utils.notify('Video loaded successfully!', 'positive')

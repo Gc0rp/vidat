@@ -399,6 +399,9 @@ class RegionAnnotation extends Annotation {
       this.color = color
     }
     this.pointList = pointList
+
+    console.log("Point list: ")
+    console.log(this.pointList)
   }
 
   /**

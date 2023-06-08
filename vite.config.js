@@ -12,6 +12,9 @@ export default defineConfig({
     host: '0.0.0.0',
     open: true
   },
+  configureWebpack: {
+    devtool: 'source-map'
+},
   publicDir: 'public',
   resolve: {
     alias: {

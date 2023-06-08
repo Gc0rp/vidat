@@ -201,6 +201,8 @@ const regionAnnotationList = computed(() => {
   if (!annotationStore.regionAnnotationListMap[currentFrame.value]) {
     annotationStore.regionAnnotationListMap[currentFrame.value] = []
   }
+
+  console.log(annotationStore.regionAnnotationListMap[currentFrame.value])
   return annotationStore.regionAnnotationListMap[currentFrame.value]
 })
 const skeletonAnnotationList = computed(() => {
@@ -434,6 +436,13 @@ const getCurrentRegionAnnotation = (mouseX, mouseY) => {
       regionAnnotation.highlight = false
     }
   }
+
+  // console.log("In get current region annotation: ");
+  // console.log(currentRegionAnnotation);
+  // console.log(nearPoint);
+  // console.log(nearPointIndex);
+  // console.log(type);
+  // console.log(index);
   return [currentRegionAnnotation, index, nearPoint, nearPointIndex, type]
 }
 const getCurrentSkeletonAnnotation = (mouseX, mouseY) => {
@@ -897,6 +906,7 @@ const handleMouseupAndMouseout = event => {
         utils.notify('The object is too small. At least 8x8.', 'warning')
         annotationList.value.splice(createContext.index, 1)
       } else {
+        console.log("In region")
         createContext = undefined
         if (preferenceStore.showPopup) {
           popup.value = {
@@ -933,6 +943,8 @@ const handleMouseupAndMouseout = event => {
           }
           showPopup.value = true
         }
+
+        console.log(annotationStore);
         autoFocus()
         createContext = undefined
       } else {
@@ -985,6 +997,7 @@ const getTouchLocation = event => {
       annotationStore.video.width
   const mouseY = (event.touches[0].clientY - currentTargetRect.top) / canvas.value.clientHeight *
       annotationStore.video.height
+    console.log("Get touch location")
   return [mouseX, mouseY]
 }
 const handleTouchstart = event => {
@@ -1096,6 +1109,7 @@ const handleTouchstart = event => {
             }
           ]
       )
+      console.log("creating a region");
       regionAnnotation.highlight = true
       annotationList.value.push(regionAnnotation)
       createContext = {

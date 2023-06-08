@@ -22,6 +22,7 @@ export const usePreferenceStore = defineStore('preference', () => {
   const defaultPreference = deepClone(DEFAULT_PREFERENCE)
   const state = reactive(DEFAULT_PREFERENCE)
   const ls = JSON.parse(localStorage.getItem(LS_KEY))
+  console.log(ls);
   if (ls) {
     for (const key in state) {
       if (ls.hasOwnProperty(key)) {

@@ -118,6 +118,7 @@ export const useAnnotationStore = defineStore('annotation', () => {
       }
       // remove type in each skeletonAnnotation
       const skeletonAnnotationListMap = {}
+
       for (const frame in state.skeletonAnnotationListMap) {
         if (state.skeletonAnnotationListMap[frame].length) {
           skeletonAnnotationListMap[frame] = state.skeletonAnnotationListMap[frame].map(
@@ -212,6 +213,8 @@ export const useAnnotationStore = defineStore('annotation', () => {
             regionAnnotation.score
           )
         }
+
+        console.log(regionAnnotationList);
       }
       state.regionAnnotationListMap = regionAnnotationListMap
       /// skeletonAnnotationListMap

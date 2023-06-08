@@ -33,7 +33,6 @@ import { usePreferenceStore } from '~/store/preference.js'
 import KeyframePanel from './KeyframePanel.vue'
 
 const AnnotationSkeleton = defineAsyncComponent(() => import('./components/AnnotationSkeleton.vue'))
-
 const annotationStore = useAnnotationStore()
 const configurationStore = useConfigurationStore()
 const preferenceStore = usePreferenceStore()
